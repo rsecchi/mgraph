@@ -5,6 +5,23 @@
 #define TEXT_OX 1
 #define TEXT_OY 3
 
+
+void print_free(struct graph* g)
+{
+int i,j;
+
+	printf("0.5 setgray\n");
+	for(i=0; i<MAX_VERTEX; i++)
+		for(j=0; j<MAX_EDGE; j++)
+			if (g->grid[i][j]) {
+				printf("newpath\n");
+				printf("%d %d %d 0 360 arc\n", 
+					SCALE*j, SCALE*i, RAD);
+				printf("stroke\n");
+ 			}
+}
+
+
 void se(struct graph* g, int *start, int* end)
 {
 int i, j, lvl, l1, l2;
@@ -71,6 +88,7 @@ int end[MAX_VERTEX];
 	printf("/Times-Roman findfont\n");
 	printf("12 scalefont\n");
 	printf("setfont\n");
+	printf("0 setgray\n");
 
 	printf("newpath\n");
 	printf("%d %d translate\n", x, y);
@@ -119,6 +137,7 @@ int end[MAX_VERTEX];
 	}
 	printf("stroke\n");
 
+	print_free(g);
 }
 
 
