@@ -32,6 +32,8 @@ struct graph
 
 	int grid[MAX_VERTEX][MAX_EDGE];
 
+	struct edge* ep[MAX_EDGE];
+
 };
 
 

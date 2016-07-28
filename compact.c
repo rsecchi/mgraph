@@ -1,5 +1,20 @@
 #include "graph.h"
 
+void enum_edges(struct graph* g)
+{
+struct edge* e = g->e;
+struct edge** ep = g->ep;
+int i, col;
+
+	for(i=0; i<MAX_EDGE; i++)
+	{
+		col = e[i].column;
+		ep[col] = &(e[i]);
+	}
+}
+
+
+
 
 void clear_grid(struct graph* g)
 {
@@ -39,6 +54,9 @@ int i, j, k, l, n1, n2, col, l1, l2, lvl, m;
 struct edge* e = g->e;
 struct vertex* v = g->v;
 	
+	enum_edges(g);
+	return;
+
 
 	for(i=0; i<MAX_EDGE; i++)
 	{

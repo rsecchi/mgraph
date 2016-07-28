@@ -62,7 +62,6 @@ int main()
 
 	print_cls(&g, 0, 200);
 
-	fprintf(stderr, "crossing: %d\n", count_cross(&g));
 	// print_graph(&g);
 	return 0;
 }
