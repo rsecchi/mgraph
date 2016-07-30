@@ -1,9 +1,42 @@
 #include "graph.h"
 
-#define SCALE 20
+#define SCALE 26
 #define RAD 2
 #define TEXT_OX 1
 #define TEXT_OY 3
+
+#define BBASE  10
+#define BHIGH  15
+
+void print_box(int x, int ya, int yb)
+{
+	int x1, y1, y2, w;
+
+	if (ya>yb) {
+		w = ya;
+		ya = yb;
+		yb = w;
+	}
+
+	x1 = SCALE*x;
+	y1 = SCALE*ya;
+	y2 = SCALE*yb;
+	y1 = (y1+y2)/2;	
+
+	printf("newpath\n");
+	printf("%d %d moveto \n", x1+BBASE/2, y1+BHIGH/2);
+	printf("%d %d lineto \n", x1-BBASE/2, y1+BHIGH/2);
+	printf("%d %d lineto \n", x1-BBASE/2, y1-BHIGH/2);
+	printf("%d %d lineto \n", x1+BBASE/2, y1-BHIGH/2);
+	printf("%d %d lineto \n", x1+BBASE/2, y1+BHIGH/2);
+	printf("stroke\n");
+	printf("newpath\n");
+	printf("%d %d moveto\n", x*SCALE, ya*SCALE);
+	printf("%d %d lineto\n", x*SCALE, y1-BHIGH/2);
+	printf("%d %d moveto\n", x*SCALE, y1+BHIGH/2);
+	printf("%d %d lineto\n", x*SCALE, yb*SCALE);
+	printf("stroke\n");
+}
 
 
 void print_free(struct graph* g)
@@ -114,6 +147,7 @@ int end[MAX_VERTEX];
 		i1 = e[i].n1;
 		i2 = e[i].n2;
 
+		/*
 		printf("%d %d moveto  ", SCALE*e[i].column, SCALE*v[i1].level);
 		printf("%d %d lineto\n", SCALE*e[i].column, SCALE*v[i2].level);
 
@@ -125,17 +159,18 @@ int end[MAX_VERTEX];
 		printf("%d %d moveto  ", 
 			SCALE*e[i].column + TEXT_OX, 
 			SCALE*v[i2].level + TEXT_OY);
-		printf("(%d) show\n", i2);
+		printf("(%d) show\n", i2); */
+		print_box( e[i].column, v[i1].level, v[i2].level);
 	}
 
-	printf("stroke\n");
+	/*printf("stroke\n");*/
 
 
 	for(i=0; i<MAX_EDGE; i++)
 	{
 		i1 = g->e[i].n1;
 		i2 = g->e[i].n2;
-		printf("newpath\n");
+	 	printf("newpath\n");
 		printf("%d %d %d 0 360 arc\n", SCALE*e[i].column, SCALE*v[i1].level, RAD);
 		printf("stroke\n");
 		printf("newpath\n");
