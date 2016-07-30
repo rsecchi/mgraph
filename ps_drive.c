@@ -21,6 +21,22 @@ int i,j;
  			}
 }
 
+void print_links(struct graph* g)
+{
+int i,j;
+
+	init_link(g);
+	printf("0.8 setgray\n");
+	for(i=0; i<MAX_EDGE; i++)
+		for(j=0; j<MAX_VERTEX; j++)
+			if (g->link[i][j]) {
+				printf("newpath\n");
+				printf("%d %d moveto %d %d lineto\n", 
+					SCALE*i, SCALE*j, 
+					SCALE*i, SCALE*(j+1));
+				printf("stroke\n");
+ 			}
+}
 
 void se(struct graph* g, int *start, int* end)
 {
@@ -138,6 +154,7 @@ int end[MAX_VERTEX];
 	printf("stroke\n");
 
 	print_free(g);
+	/* print_links(g); */
 }
 
 

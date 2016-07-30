@@ -2,10 +2,12 @@
 #include <stdlib.h>
 #include <sys/time.h>
 #include <strings.h>
+#include <string.h>
 
 #define MAX_EDGE  20
 #define MAX_VERTEX 10
 #define SIZE 200
+
 
 struct vertex 
 {
@@ -31,6 +33,8 @@ struct graph
 	struct vertex v[MAX_VERTEX];
 
 	int grid[MAX_VERTEX][MAX_EDGE];
+	
+	int link[MAX_EDGE][MAX_VERTEX];
 
 	struct edge* ep[MAX_EDGE];
 
@@ -55,3 +59,4 @@ int remove_cross(struct graph*);
 
 
 void compact(struct graph*);
+void init_link(struct graph*);

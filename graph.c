@@ -50,8 +50,8 @@ int main()
 	struct graph g;
 
 	init_graph_random(&g);
-	compact(&g);
-	print_cls(&g, 100, 200);
+	print_cls(&g, 100, 180);
+	//compact(&g);
 
 	make_sp(&g);
 	// debug_tree(&g);
@@ -60,7 +60,7 @@ int main()
 	remove_cross(&g);
 	compact(&g);
 
-	print_cls(&g, 0, 200);
+	print_cls(&g, 0, 250);
 
 	// print_graph(&g);
 	return 0;
