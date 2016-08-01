@@ -18,6 +18,7 @@ struct vertex
 	int dist;
 	int visited;
 
+	int centre;
 	int connects;
 };
 

@@ -112,6 +112,7 @@ int vs, ve, c;
 		}
 
 
+		i1 = 0;
 		for(j=0; j<MAX_VERTEX; j++)
 		{
 
@@ -120,7 +121,7 @@ int vs, ve, c;
 			if ( start[j] == -1 && (l1 == lvl  || l2 == lvl)) {
 				start[j] = end[j] = c;
 			} else {
-				if ( start[j] > c && (l1 == lvl  || l2 == lvl))
+				if ( start[j] > c && (l1 == lvl  || l2 == lvl)) 
 					start[j] = c;
 
 				if ( end[j] < c  && (l1 == lvl  || l2 == lvl))
@@ -190,10 +191,15 @@ int end[MAX_VERTEX];
 	se(g, start, end);	
 	for(i=0; i<MAX_VERTEX; i++)
 	{
+		printf("newpath\n");
+		if (v[i].connects == 3)
+			printf("%d %d %d 0 360 arc\n", 
+				SCALE*start[i], SCALE*v[i].level, RAD*10);
+
+
 		printf("%d %d moveto  ", SCALE*start[i], SCALE*v[i].level);
 		printf("%d %d lineto\n", SCALE*end[i], SCALE*v[i].level);
 		printf("stroke\n");
-
 	}
 
 	print_free(g);
