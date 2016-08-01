@@ -108,7 +108,7 @@ struct vertex* v = g->v;
 int flag, w;
 struct edge* myep;
 	
-	fprintf(stderr, "compact\n");
+	//fprintf(stderr, "compact\n");
 	enum_edges(g);
 
 	for(i=0; i<MAX_EDGE; i++)
@@ -122,18 +122,18 @@ struct edge* myep;
 			l1 = l2;
 			l2 = w;
 		}
-		fprintf(stderr, "edge[%d] l1=%d l2=%d col=%d\n",
-				i,l1,l2, g->ep[i]->column);
+		//fprintf(stderr, "edge[%d] l1=%d l2=%d col=%d\n",
+		//		i,l1,l2, g->ep[i]->column);
 
 		for(j=g->ep[i]->column-1; j>=0; j--) {
 			flag = 1;
 			for(k=l1; k<l2; k++) {
 				if ( ! g->link[j][k] )
 					flag = 0;
-				fprintf(stderr, "%d %d flag=%d link=%d\n", 
-					j, k, flag, g->link[j][k]);
+				//fprintf(stderr, "%d %d flag=%d link=%d\n", 
+				//	j, k, flag, g->link[j][k]);
 			}
-			fprintf(stderr, "flag=%d\n", flag);
+			//fprintf(stderr, "flag=%d\n", flag);
 
 			if (flag)
 				g->ep[i]->column = j;

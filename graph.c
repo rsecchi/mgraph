@@ -34,6 +34,7 @@ void init_graph_random(struct graph* g)
 
 	gettimeofday(&tv, NULL);
 	srand(tv.tv_usec);	
+	//srand(23212);
 
 	init_vertex_random(g->v);
 	init_edge_random(g->e);
@@ -43,6 +44,8 @@ void init_graph_random(struct graph* g)
 		for(j=0; j<MAX_EDGE; j++)
 			g->grid[i][j] = 0;
 
+
+	tripode_select(g);	
 }
 
 int main()
@@ -50,7 +53,7 @@ int main()
 	struct graph g;
 
 	init_graph_random(&g);
-	print_cls(&g, 100, 180);
+	// print_cls(&g, 100, 180);
 	//compact(&g);
 
 	make_sp(&g);
@@ -59,8 +62,8 @@ int main()
 
 	remove_cross(&g);
 	compact(&g);
+	print_cls(&g, 50, 250);
 
-	print_cls(&g, 0, 250);
 
 	// print_graph(&g);
 	return 0;

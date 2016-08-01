@@ -17,6 +17,8 @@ struct vertex
 	int level;   /* for orthogonal drawing */
 	int dist;
 	int visited;
+
+	int connects;
 };
 
 struct edge
@@ -25,6 +27,9 @@ struct edge
 	int n2;    /* ending vertex */
 
 	int column;
+
+	int el;
+
 };
 
 struct graph
@@ -32,12 +37,13 @@ struct graph
 	struct edge e[MAX_EDGE];
 	struct vertex v[MAX_VERTEX];
 
-	int grid[MAX_VERTEX][MAX_EDGE];
-	
+	int grid[MAX_VERTEX][MAX_EDGE];	
 	int link[MAX_EDGE][MAX_VERTEX];
 
 	struct edge* ep[MAX_EDGE];
 
+	int tripodes;
+	int bipodes;
 };
 
 
@@ -60,3 +66,6 @@ int remove_cross(struct graph*);
 
 void compact(struct graph*);
 void init_link(struct graph*);
+
+void tripode_select(struct graph*);
+

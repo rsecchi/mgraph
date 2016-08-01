@@ -1,16 +1,25 @@
 #include "graph.h"
 
 #define SCALE 26
-#define RAD 2
+#define RAD 1
 #define TEXT_OX 1
 #define TEXT_OY 3
 
 #define BBASE  10
 #define BHIGH  15
 
-void print_box(int x, int ya, int yb)
+void print_box(int x, int ya, int yb, int el)
 {
 	int x1, y1, y2, w;
+
+	if (!el) 
+	{
+		printf("newpath\n");
+		printf("%d %d moveto\n", x*SCALE, ya*SCALE);
+		printf("%d %d lineto\n", x*SCALE, yb*SCALE);
+		printf("stroke\n");
+		return;
+	}
 
 	if (ya>yb) {
 		w = ya;
@@ -160,7 +169,7 @@ int end[MAX_VERTEX];
 			SCALE*e[i].column + TEXT_OX, 
 			SCALE*v[i2].level + TEXT_OY);
 		printf("(%d) show\n", i2); */
-		print_box( e[i].column, v[i1].level, v[i2].level);
+		print_box( e[i].column, v[i1].level, v[i2].level, e[i].el);
 	}
 
 	/*printf("stroke\n");*/
@@ -179,14 +188,13 @@ int end[MAX_VERTEX];
 	}
 
 	se(g, start, end);	
-	printf("newpath\n");
 	for(i=0; i<MAX_VERTEX; i++)
 	{
 		printf("%d %d moveto  ", SCALE*start[i], SCALE*v[i].level);
 		printf("%d %d lineto\n", SCALE*end[i], SCALE*v[i].level);
+		printf("stroke\n");
 
 	}
-	printf("stroke\n");
 
 	print_free(g);
 	/* print_links(g); */
