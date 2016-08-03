@@ -20,6 +20,7 @@ struct vertex
 
 	int centre;
 	int connects;
+	int c[3];
 };
 
 struct edge
@@ -69,4 +70,4 @@ void compact(struct graph*);
 void init_link(struct graph*);
 
 void tripode_select(struct graph*);
-
+void set_centres(struct graph*);

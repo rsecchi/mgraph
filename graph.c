@@ -62,6 +62,7 @@ int main()
 
 	remove_cross(&g);
 	compact(&g);
+	set_centres(&g);
 	print_cls(&g, 50, 250);
 
 

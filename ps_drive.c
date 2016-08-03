@@ -194,7 +194,7 @@ int end[MAX_VERTEX];
 		printf("newpath\n");
 		if (v[i].connects == 3)
 			printf("%d %d %d 0 360 arc\n", 
-				SCALE*start[i], SCALE*v[i].level, RAD*10);
+				SCALE*v[i].centre, SCALE*v[i].level, RAD*10);
 
 
 		printf("%d %d moveto  ", SCALE*start[i], SCALE*v[i].level);

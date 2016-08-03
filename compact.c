@@ -46,6 +46,8 @@ struct vertex* v = g->v;
 }
 
 
+
+
 void clear_grid(struct graph* g)
 {
 int i, j, k, l, n1, n2, col, l1, l2, lvl, m;

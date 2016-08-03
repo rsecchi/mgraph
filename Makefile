@@ -9,3 +9,6 @@ graph: $(OBJS) $(HDR)
 clean:
 	rm $(OBJS)
 
+%.o: %.c $(HDR)
+#  recipe to execute (built-in):
+	$(COMPILE.c) $(OUTPUT_OPTION) $<
