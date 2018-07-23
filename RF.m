@@ -1,4 +1,10 @@
 
+% RF main
+function funs = RF()
+  f.fun1 = @Ze;
+  funs = f;
+end
+
 % Check if the Z matrix is passive
 function t = ispassive(Z)
 
@@ -44,7 +50,26 @@ end
 
 % The function returns the Zin, Zout that maximise
 % the
-function [Zin, Zout] = adapt(Z)
+function [Gamma_in, Gamma_out] = adapt(S)
+   
+  % Rollet Factor
+  delta = det(S);
+  K = (1 - abs(S(1,1))^2 - abs(S(2,2))^2 + abs(delta)^2)/(2*abs(S(1,2)*S(2,1)));
+  
+  if not( (K>1) && (abs(delta)<1) )
+    error("The two-port is not unconditionally stable");
+  end
+  
+  B1 = 1 + abs(S(1,1))^2 - abs(S(2,2))^2 - abs(delta)^2;
+  B2 = 1 + abs(S(2,2))^2 - abs(S(1,1))^2 - abs(delta)^2;
+  C1 = S(1,1) - delta*conj(S(2,2));
+  C2 = S(2,2) - delta*conj(S(1,1));
+  D1 = abs(S(1,1))^2 - abs(delta)^2;
+  D2 = abs(S(2,2))^2 - abs(delta)^2;
+  
+  Gamma_in  = (B1 - sqrt(B1^2 - 4*abs(C1)^2))/(2*C1);
+  Gamma_out = (B2 - sqrt(B2^2 - 4*abs(C2)^2))/(2*C2);
+  
 end
 
 % Maximum available gain
@@ -80,3 +105,11 @@ function S = T2S(T)
 end
 
 
+% Example common-base amplifier
+function Ze = Ze()
+  Ze = zeros(2);
+  Ze(1,1) = 22.18 + i*5.36;
+  Ze(1,2) = 12.19 + i*5.60;
+  Ze(2,1) = 464.7 - i*371.0;
+  Ze(2,2) = 472.3 - i*374.9;
+end
