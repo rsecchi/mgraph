@@ -1,4 +1,5 @@
-% The function converts the Z matrix into an S matrix
+% The function converts the S matrix into an Z matrix
 function Z = S2Z(S, R0=50)
-	S = R0*(eye(2)+S)/(eye(2)-S);
+    sz = size(S)(1,1);
+	Z = R0*(eye(sz)+S)/(eye(sz)-S);
 end
