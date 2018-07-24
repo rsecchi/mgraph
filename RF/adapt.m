@@ -6,9 +6,9 @@ function [Gamma_in, Gamma_out] = adapt(S)
   delta = det(S);
   K = (1 - abs(S(1,1))^2 - abs(S(2,2))^2 + abs(delta)^2)/(2*abs(S(1,2)*S(2,1)));
   
-  if not( (K>1) && (abs(delta)<1) )
-    error("The two-port is not unconditionally stable");
-  end
+  %if not( (K>1) && (abs(delta)<1) )
+  %  error("The two-port is not unconditionally stable");
+  %end
   
   B1 = 1 + abs(S(1,1))^2 - abs(S(2,2))^2 - abs(delta)^2
   B2 = 1 + abs(S(2,2))^2 - abs(S(1,1))^2 - abs(delta)^2
