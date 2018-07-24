@@ -1,4 +1,4 @@
-% Maximum available gain
+% Operating gain
 function Gp = gainp(Z, ZG, ZL)
 	RL = real(ZL);
 	RG = real(ZG);
