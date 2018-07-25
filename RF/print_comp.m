@@ -1,5 +1,5 @@
 % Print the value of the component
-function print_comp(Z, f0=1e5)
+function print_comp(Z, f0=1e6)
 	R = real(Z);
 	printf("R %.3g\t\t", R);
 	X = imag(Z);

@@ -1,6 +1,6 @@
 % The function takes an S matrix as input
 % and returns the Gamma_in, and Gamma_out that maximise the gain
-function [Gamma_in, Gamma_out] = adapt(S)
+function [Gamma_in, Gamma_out] = Sadapt(S)
    
   % Rollet Factor
   delta = det(S);

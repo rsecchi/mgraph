@@ -1,5 +1,5 @@
 % Operating gain
-function Gp = gainp(Z, ZG, ZL)
+function Gp = Zgainp(Z, ZG, ZL)
 	RL = real(ZL);
 	RG = real(ZG);
 	Zin = Ztrans_in(Z,ZL);
