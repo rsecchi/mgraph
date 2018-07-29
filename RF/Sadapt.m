@@ -16,8 +16,13 @@ function [Gamma_in, Gamma_out] = Sadapt(S)
   C2 = S(2,2) - delta*conj(S(1,1));
   D1 = abs(S(1,1))^2 - abs(delta)^2;
   D2 = abs(S(2,2))^2 - abs(delta)^2;
-  
-  Gamma_in  = (B1 - sqrt(B1^2 - 4*abs(C1)^2))/(2*C1);
-  Gamma_out = (B2 - sqrt(B2^2 - 4*abs(C2)^2))/(2*C2);
-  
+
+  if (B1>0 && B2>0)  
+  	Gamma_in  = (B1 - sqrt(B1^2 - 4*abs(C1)^2))/(2*C1);
+ 	Gamma_out = (B2 - sqrt(B2^2 - 4*abs(C2)^2))/(2*C2);
+  else 
+  	Gamma_in  = (B1 + sqrt(B1^2 - 4*abs(C1)^2))/(2*C1);
+ 	Gamma_out = (B2 + sqrt(B2^2 - 4*abs(C2)^2))/(2*C2);
+  end
+
 end
