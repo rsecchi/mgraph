@@ -1,4 +1,4 @@
-function v = circle2(S, n=40)
+function v = circle2(S, n=1000)
   
   alpha = [0:2*pi/n:2*pi];
   Gs = [cos(alpha)+i*sin(alpha)]';
