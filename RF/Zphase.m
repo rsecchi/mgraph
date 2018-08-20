@@ -1,5 +1,5 @@
-function [phi, mod] = Zphase(Z)
-	H = (Z(2,1)+Z(1,2))/(Z(1,1)+Z(2,2));
+function [phi, mod] = Zphase(Z1)
+	H = (Z1(2,1)+Z1(1,2))/(Z1(1,1)+Z1(2,2));
 	phi = arg(H);	
 	mod = abs(H);
 end

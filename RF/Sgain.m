@@ -9,7 +9,7 @@ function Gmax = Sgain(S1)
 	end
 	
 	if (abs(S1(1,2))>1e-7)
-		Gmax = abs(S1(2,1)/S1(1,2))*(k-sqrt(k^2-1));Z
+		Gmax = abs(S1(2,1)/S1(1,2))*(k-sqrt(k^2-1));
 	else
 		Gmax = abs(S1(2,1))^2/((1-abs(S1(1,1))^2)*(1-abs(S1(2,2))^2));
 	end
