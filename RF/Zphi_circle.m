@@ -1,11 +1,11 @@
-function Zphi_circle(Z1)
+function Zphi_circle(Z1,g=1)
 	grid
 	cc1 = [];
 	cc2 = [];
 	cc3 = [];
 	cc4 = [];
 	for Xb = [-1000:1.53:1000]
-		[Zr1,Zr2,delta] = Zphi(Z1,Xb);
+		[a,b,Zr1,Zr2,d1,delta] = Zphi2(Z1,Xb,g);
 		if (delta>0)
 			Zt1 = T(T(Z1)*T(Zr1));
 			Zt2 = T(T(Z1)*T(Zr2));
