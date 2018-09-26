@@ -4,6 +4,9 @@ function [Sr1, Sr2] = Srephase(Sm)
 	
 	[Sn, Sin, Sout] = Snormal(Sm);
 	
+	S(1,1)
+	S(2,2)
+	
 	A = Sn(2,1) + Sn(1,2);
 	B = -det(Sn);
 	
@@ -12,7 +15,11 @@ function [Sr1, Sr2] = Srephase(Sm)
 	phiB = arg(B);
 	
 	phi = atan(tan(phiB/2-phiA)*(1+aB)/(1-aB)) - phiB/2;
-		
+	
+	exp(i*phi)
+	z=conj(A)-conj(B)*A;
+	z/abs(z)
+	
 	sh1 = [[1 0]; [0  exp(i*phi)]];
 	sh2 = [[1 0]; [0 -exp(i*phi)]];
 			
