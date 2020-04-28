@@ -1,0 +1,28 @@
+
+Procedure to build an osciller if the revese action of the
+power amplifier can be be neglected)
+
+1) Evaluate the maximum available power gain using the Z paraters
+(NB if the Z12 ~ 0, the amplifier is unconditionally stable)
+
+Ga = abs(Z21)^2/(4*Re(Z11)*Re(Z22))
+
+Oscillator can operate at frequencies such that Ga>1
+
+2) We compensate some reactance at input and output at the frequency
+   chosen for oscillation, so that Z11 and Z22 are purely resistive
+
+3) We choose a RL so that the operating gain is about 1.1, 1.2.
+
+
+4) We calculate an impedance transformer so that the input impedance
+transform in the one chosen (Z0).
+
+5) We estimate the phase shift theta and we add a transmission line 
+made with a simmetric T network with
+
+     Xa = -Z0 * tan(theta/2)
+     Xb = X0 * csc(theta)
+
+
+
