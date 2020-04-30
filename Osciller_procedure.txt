@@ -10,10 +10,10 @@ Quarter-wave transformer
 
 
 
---[-jZ0]---+---[-jZ0]--          --+---[-jZ0]---+--
+--[+jZ0]---+---[+jZ0]--          --+---[+jZ0]---+--
            |                       |            |          Rin = Z0^2/RL
            _                       _            _          phi = -pi/2
-          | | jZ0          or     | |jZ0       | |jZ0      H = -i*RL/Z0
+          | | -jZ0         or     | | -jZ0     | | -jZ0    H = -i*RL/Z0
            -                       -            -
            |                       |            |
 
