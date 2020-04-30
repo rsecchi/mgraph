@@ -1,4 +1,24 @@
 
+Quarter-wave transformer
+
+--[-jZ0]---+---[-jZ0]--          --+---[-jZ0]---+--
+           |                       |            |          Rin = Z0^2/RL
+           _                       _            _          phi = +pi/2
+          | | jZ0          or     | |jZ0       | |jZ0      H = i*RL/Z0
+           -                       -            -
+           |                       |            |
+
+
+
+--[-jZ0]---+---[-jZ0]--          --+---[-jZ0]---+--
+           |                       |            |          Rin = Z0^2/RL
+           _                       _            _          phi = -pi/2
+          | | jZ0          or     | |jZ0       | |jZ0      H = -i*RL/Z0
+           -                       -            -
+           |                       |            |
+
+======================
+
 Procedure to build an osciller if the revese action of the
 power amplifier can be be neglected)
 
@@ -13,7 +33,18 @@ Oscillator can operate at frequencies such that Ga>1
    chosen for oscillation, so that Z11 and Z22 are purely resistive
 
 3) We choose a RL so that the operating gain is about 1.1, 1.2.
+For this we can use a quarter-wave impedance transformer loaded with Z11.
 
+There are two possibilities:
+
+    a) We use a load of Z11 (assuming that Z11 is resistive and 
+       Z12 is negligible)
+
+    b) We use a generic load (eg 50ohm) and we plot the formula
+
+                Z21 - Z12
+           H = -----------
+                Z11 + Z22
 
 4) We calculate an impedance transformer so that the input impedance
 transform in the one chosen (Z0).
@@ -22,7 +53,7 @@ transform in the one chosen (Z0).
 made with a simmetric T network with
 
      Xa = -Z0 * tan(theta/2)
-     Xb = X0 * csc(theta)
+     Xb = Z0 * csc(theta)
 
 
 
