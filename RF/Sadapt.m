@@ -2,7 +2,7 @@
 % and returns the Gamma_in, and Gamma_out that maximise the gain
 function [Gamma_in, Gamma_out] = Sadapt(S)
    
-  % Rollet Factor
+  % Rollett Factor
   delta = det(S);
   K = (1 - abs(S(1,1))^2 - abs(S(2,2))^2 + abs(delta)^2)/(2*abs(S(1,2)*S(2,1)));
   

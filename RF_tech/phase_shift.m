@@ -16,13 +16,13 @@ function phase_shift(phi, Z0, w)
 
 		L = X1/w;
 		C = -1/(X2*w);
-		printf("L_ser=%g C_par=%f L_ser=%g", L, C, L);
+		printf("L_ser=%g C_par=%g L_ser=%g\n", L, C, L);
  
 	else
 
 		C = -1/(X1*w);
-		L = X2/*w;
-		printf("C_ser=%g L_par=%f C_ser=%g", C, L, C);
+		L = X2/w;
+		printf("C_ser=%g L_par=%g C_ser=%g\n", C, L, C);
 
 	endif
 
